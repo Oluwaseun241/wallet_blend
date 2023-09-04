@@ -1,14 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  TextInput,
-  Image,
-  Pressable,
-} from "react-native";
+import { View, Text, TouchableOpacity, TextInput, Image } from "react-native";
 
 export default function VerifyScreen() {
   const navigation = useNavigation();
@@ -21,9 +14,9 @@ export default function VerifyScreen() {
   return (
     <SafeAreaProvider className="pt-12 pl-4 bg-white">
       <View className="pt-12 pr-4 flex-row">
-        <Pressable onPress={() => navigation.navigate("Register")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Register")}>
           <Image source={require("../assets/back.png")} className="w-10 h-12" />
-        </Pressable>
+        </TouchableOpacity>
         <View>
           <Text className="font-semibold text-2xl text-center">
             Verify Account
@@ -33,10 +26,33 @@ export default function VerifyScreen() {
           </Text>
         </View>
       </View>
-      <TextInput
-        keyboardType="numeric"
-        className="h-12 mt-4 mb-4 pl-4 text-xl border-2 border-gray-200 rounded-xl"
-      />
+      <View className="flex-row gap-4 pt-4 pl-4 mb-4">
+        <TextInput
+          keyboardType="numeric"
+          maxLength={1}
+          className="h-14 w-14 pl-4 text-3xl border-2 border-gray-200 rounded-xl"
+        />
+        <TextInput
+          keyboardType="numeric"
+          maxLength={1}
+          className="h-14 w-14 pl-4 text-3xl border-2 border-gray-200 rounded-xl"
+        />
+        <TextInput
+          keyboardType="numeric"
+          maxLength={1}
+          className="h-14 w-14 pl-4 text-3xl border-2 border-gray-200 rounded-xl"
+        />
+        <TextInput
+          keyboardType="numeric"
+          maxLength={1}
+          className="h-14 w-14 pl-4 text-3xl border-2 border-gray-200 rounded-xl"
+        />
+        <TextInput
+          keyboardType="numeric"
+          maxLength={1}
+          className="h-14 w-14 pl-4 text-3xl border-2 border-gray-200 rounded-xl"
+        />
+      </View>
       <View className="pt-4 pr-4">
         <TouchableOpacity className="rounded-full h-12 bg-blue-700">
           <Text className="text-white text-2xl mt-1 text-center font-normal">
