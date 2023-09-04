@@ -1,12 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
-import {
-  SafeAreaView,
-  View,
-  Text,
-  TouchableOpacity,
-  TextInput,
-} from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { View, Text, TouchableOpacity, TextInput } from "react-native";
 
 export default function RegisterScreen() {
   const navigation = useNavigation();
@@ -18,7 +13,7 @@ export default function RegisterScreen() {
   });
 
   return (
-    <SafeAreaView className="flex-1 pt-12 pl-4 bg-white">
+    <SafeAreaProvider className="flex-1 pt-12 pl-4 bg-white">
       <View className="pt-12">
         <Text className="font-bold text-2xl">Tell Us About You</Text>
         <Text className="text-xl pt-2">Lets help you setup</Text>
@@ -69,6 +64,6 @@ export default function RegisterScreen() {
           Login
         </Text>
       </View>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
