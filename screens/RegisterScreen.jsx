@@ -45,7 +45,7 @@ export default function RegisterScreen() {
         <View className="pt-4">
           <TouchableOpacity
             onPress={() => navigation.navigate("Verify")}
-            className="rounded-full h-12 bg-blue-700"
+            className="rounded-full h-12 bg-[#0c2b97]"
           >
             <Text className="text-white text-2xl mt-1 text-center font-normal">
               Next
@@ -58,7 +58,7 @@ export default function RegisterScreen() {
           Already have an account?
         </Text>
         <Text
-          className="text-blue-700 text-lg font-bold"
+          className="text-[#0c2b97] text-lg font-bold"
           onPress={() => navigation.navigate("Login")}
         >
           Login

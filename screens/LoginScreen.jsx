@@ -32,12 +32,12 @@ export default function HomeScreen() {
           className="h-12 mt-4 mb-4 pl-4 text-xl border-2 border-gray-200 rounded-xl"
         />
         <View className="pt-4">
-          <Text className="text-blue-700 text-lg font-semibold">
+          <Text className="text-[#0c2b97] text-lg font-semibold">
             Forgot password?
           </Text>
         </View>
         <View className="pt-4">
-          <TouchableOpacity className="rounded-full h-12 bg-blue-700">
+          <TouchableOpacity className="rounded-full h-12 bg-[#0c2b97]">
             <Text className="text-white text-2xl mt-1 text-center font-normal">
               Login
             </Text>
@@ -50,7 +50,7 @@ export default function HomeScreen() {
         </Text>
         <Text
           onPress={() => navigation.navigate("Register")}
-          className="text-blue-700 text-lg font-bold"
+          className="text-[#0c2b97] text-lg font-bold"
         >
           SignUp
         </Text>
