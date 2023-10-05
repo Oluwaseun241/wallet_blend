@@ -23,8 +23,8 @@ export default function HomeScreen() {
       };
 
       const response = await axios.post(
-        "http://127.0.0.1:3000/api/auth/login",
-        /* "https://wallet-api.up.railway.app/api/auth/login", */
+        /* "http://127.0.0.1:3000/api/auth/login", */
+        "https://wallet-api.up.railway.app/api/auth/login",
         data
       );
 
