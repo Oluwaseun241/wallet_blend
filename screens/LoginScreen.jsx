@@ -4,7 +4,7 @@ import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import axios from "axios";
 
-export default function HomeScreen() {
+export default function LoginScreen() {
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,6 +30,7 @@ export default function HomeScreen() {
 
       // Handle successful login, e.g., store user data or token, navigate to main app screen.
       console.log("Login successful:", response.data);
+      navigation.navigate("Home");
     } catch (error) {
       // Handle login error, show a message to the user.
       console.error("Login failed:", error);
