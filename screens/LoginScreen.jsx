@@ -23,14 +23,14 @@ export default function LoginScreen() {
       };
 
       const response = await axios.post(
-        /* "http://127.0.0.1:3000/api/auth/login", */
         "https://wallet-api.up.railway.app/api/auth/login",
         data
       );
 
-      // Handle successful login, e.g., store user data or token, navigate to main app screen.
-      console.log("Login successful:", response.data);
-      navigation.navigate("Home");
+      if (response.data) {
+        console.log("Login successful:", response.data);
+        navigation.navigate("Home");
+      }
     } catch (error) {
       // Handle login error, show a message to the user.
       console.error("Login failed:", error);
