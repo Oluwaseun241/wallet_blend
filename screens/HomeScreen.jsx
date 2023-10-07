@@ -3,17 +3,19 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import jwtDecode from "jwt-decode";
 import { useLayoutEffect } from "react";
-
-const authToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTY2OTM3NDEsInN1YiI6ImU1ZDc0MTZmLTAwMmYtNDUwNy04YTRhLTQ3ZWMwMWMyZTVlMyIsInVzZXJuYW1lIjoiVGVzdGluZyJ9.3R4VI-CCi8ajRzSVLV2dV7kcKF61lslmRID3E8e9kA8";
-// Decode the token to access user information
-const decodedToken = jwtDecode(authToken);
-console.log(decodedToken);
-
-// Access the user's username
-const username = decodedToken.username;
+import { useAuth } from "../services/auth";
 
 export default function HomeScreen() {
+  const { token } = useAuth();
+  console.log(token);
+  const authToken = token;
+  // Decode the token to access user information
+  const decodedToken = jwtDecode(authToken);
+  console.log(decodedToken);
+
+  // Access the user's username
+  const username = decodedToken.username;
+
   const navigation = useNavigation();
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -29,6 +31,7 @@ export default function HomeScreen() {
           className="h-10 w-10 rounded-full"
         />
         <Text className="text-xl font-semibold">Hi, {username}</Text>
+        <Image source={require("../assets/notificaion.svg")} />
       </View>
       <View className="p-4 mt-4 bg-[#0c2b97] h-48 w-[95%] rounded-lg">
         <Text className="text-white text-lg">Wallet Balance</Text>

@@ -3,11 +3,14 @@ import { useLayoutEffect, useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import axios from "axios";
+import { useAuth } from "../services/auth";
 
 export default function LoginScreen() {
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { login } = useAuth();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -21,14 +24,15 @@ export default function LoginScreen() {
         email: email,
         password: password,
       };
-
       const response = await axios.post(
         "https://wallet-api.up.railway.app/api/auth/login",
         data
       );
 
-      if (response.data) {
-        console.log("Login successful:", response.data);
+      if (response.data && response.data.token) {
+        const token = response.data.token;
+        console.log("Login successful:", token);
+        login(token);
         navigation.navigate("Home");
       }
     } catch (error) {
