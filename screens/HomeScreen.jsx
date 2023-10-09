@@ -7,11 +7,9 @@ import { useAuth } from "../services/auth";
 
 export default function HomeScreen() {
   const { token } = useAuth();
-  console.log(token);
   const authToken = token;
   // Decode the token to access user information
   const decodedToken = jwtDecode(authToken);
-  console.log(decodedToken);
 
   // Access the user's username
   const username = decodedToken.username;
@@ -31,7 +29,7 @@ export default function HomeScreen() {
           className="h-10 w-10 rounded-full"
         />
         <Text className="text-xl font-semibold">Hi, {username}</Text>
-        <Image source={require("../assets/notificaion.svg")} />
+        <Image source={require("../assets/notification.svg")} className="" />
       </View>
       <View className="p-4 mt-4 bg-[#0c2b97] h-48 w-[95%] rounded-lg">
         <Text className="text-white text-lg">Wallet Balance</Text>
@@ -41,6 +39,41 @@ export default function HomeScreen() {
             + Sync your account
           </Text>
         </TouchableOpacity>
+      </View>
+      <View className="flex-row justify-between p-4 mt-4">
+        <Text className="text-lg font-semibold">Quick actions</Text>
+        <Text className="font-medium pr-4">View all</Text>
+      </View>
+      <View className="flex-row justify-around mt-4">
+        <View>
+          <Image
+            source={require("../assets/airtime.png")}
+            className="h-16 w-16"
+          />
+          <Text className="font-medium mt-2">Buy airtime</Text>
+        </View>
+        <View>
+          <Image source={require("../assets/data.png")} className="h-16 w-16" />
+          <Text className="font-medium mt-2">Buy data</Text>
+        </View>
+        <View>
+          <Image
+            source={require("../assets/airtime.png")}
+            className="h-16 w-16"
+          />
+          <Text className="font-medium mt-2">Betting</Text>
+        </View>
+        <View>
+          <Image
+            source={require("../assets/airtime.png")}
+            className="h-16 w-16"
+          />
+          <Text className="font-medium mt-2">Electricity</Text>
+        </View>
+      </View>
+      <View className="flex-row justify-between p-4 mt-4">
+        <Text className="text-lg font-semibold">Transations</Text>
+        <Text className="font-medium pr-4">View all</Text>
       </View>
     </SafeAreaProvider>
   );

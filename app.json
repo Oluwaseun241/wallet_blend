@@ -17,12 +17,19 @@
     },
     "android": {
       "adaptiveIcon": {
+        "permissions": ["INTERNET"],
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.viper7.wallet_blend"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "75d8f672-c150-416c-be29-9a721dcd1525"
+      }
     }
   }
 }
