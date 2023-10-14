@@ -1,10 +1,16 @@
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect, useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  StyleSheet,
+} from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import axios from "axios";
 import { useAuth } from "../services/auth";
-import { useFonts } from "expo-font";
+import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
 
 export default function LoginScreen() {
   const navigation = useNavigation();
@@ -43,7 +49,7 @@ export default function LoginScreen() {
   };
 
   const [fontsLoaded] = useFonts({
-    Nunito_Sans: require("../assets/fonts/NunitoSans.ttf"),
+    Inter_900Black,
   });
 
   if (!fontsLoaded) {
@@ -51,10 +57,7 @@ export default function LoginScreen() {
   }
 
   return (
-    <SafeAreaProvider
-      /* style={{ fontFamily: "Nunito Sans" }} */
-      className="flex-1 pt-12 pl-4 bg-white font-[NunitoSans]"
-    >
+    <SafeAreaProvider className="flex-1 pt-12 pl-4 bg-white font-[Inter_900Black]">
       <View className="pt-12">
         <Text className="font-bold text-2xl">Lets Get You Started</Text>
         <Text className="text-xl pt-2">Login to your account</Text>
