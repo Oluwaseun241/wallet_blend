@@ -1,9 +1,11 @@
 import Onboarding from "react-native-onboarding-swiper";
-import { Image } from "react-native";
+import { Alert, Button, Image, StatusBar } from "react-native";
 
 const OnboardingScreen = () => {
   return (
     <Onboarding
+      showDone={false}
+      onSkip={() => Alert.alert("Skipped")}
       pages={[
         {
           backgroundColor: "#fff",
@@ -37,8 +39,16 @@ const OnboardingScreen = () => {
             />
           ),
           title: "Manage all your financial account all one app",
-          subtitle:
-            "With this app, you can connect all your financial accounts, including your bank accounts, credit cards, and investments",
+          subtitle: (
+            <Button
+              title={"Get Started"}
+              className="rounded mt-4 text-blue-700"
+              onPress={() => {
+                Alert.alert("done");
+                StatusBar.setBarStyle("default");
+              }}
+            />
+          ),
         },
       ]}
     />

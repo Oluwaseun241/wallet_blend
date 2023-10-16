@@ -54,7 +54,10 @@ export default function VerifyScreen() {
         />
       </View>
       <View className="pt-4 pr-4">
-        <TouchableOpacity className="rounded-full h-12 bg-[#0c2b97]">
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Home")}
+          className="rounded-full h-12 bg-[#0c2b97]"
+        >
           <Text className="text-white text-2xl mt-1 text-center font-normal">
             Verify
           </Text>

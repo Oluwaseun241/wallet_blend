@@ -14,6 +14,7 @@ export default function App() {
     <AuthProvider>
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen name="Onboarding" component={OnboardingScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="Verify" component={VerifyScreen} />
