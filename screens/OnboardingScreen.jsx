@@ -1,54 +1,41 @@
 import Onboarding from "react-native-onboarding-swiper";
-import { Alert, Button, Image, StatusBar } from "react-native";
+import { Alert, Button, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { useLayoutEffect } from "react";
 
 const OnboardingScreen = () => {
+  const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  });
+
   return (
     <Onboarding
-      showDone={false}
-      onSkip={() => Alert.alert("Skipped")}
+      onDone={() => navigation.navigate("Login")}
+      onSkip={() => navigation.navigate("Login")}
       pages={[
         {
           backgroundColor: "#fff",
-          image: (
-            <Image
-              source={require("../assets/Onboarding_screen_1.png")}
-              className="h-84"
-            />
-          ),
+          image: <Image source={require("../assets/onboarding-img1.png")} />,
           title: "Send money in minutes",
           subtitle: "Recipients will receive funds almost immediately",
         },
         {
           backgroundColor: "#fff",
-          image: (
-            <Image
-              source={require("../assets/Onboarding_screen_2.png")}
-              className="h-84"
-            />
-          ),
+          image: <Image source={require("../assets/onboarding-img2.png")} />,
           title: "Safe and secure transfers",
           subtitle:
             "Your transactions and personal data are securely protected",
         },
         {
           backgroundColor: "#fff",
-          image: (
-            <Image
-              source={require("../assets/Onboarding_screen_3.png")}
-              className="h-96"
-            />
-          ),
+          image: <Image source={require("../assets/onboarding-img3.png")} />,
           title: "Manage all your financial account all one app",
-          subtitle: (
-            <Button
-              title={"Get Started"}
-              className="rounded mt-4 text-blue-700"
-              onPress={() => {
-                Alert.alert("done");
-                StatusBar.setBarStyle("default");
-              }}
-            />
-          ),
+          subtitle:
+            "With this app, you can connect all your financial accounts, including your bank accounts, credit cards, and investment",
         },
       ]}
     />
