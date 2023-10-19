@@ -29,11 +29,21 @@ export default function HomeScreen() {
           className="h-10 w-10 rounded-full"
         />
         <Text className="text-xl font-semibold">Hi, {username}</Text>
-        <Image source={require("../assets/notification.svg")} className="" />
+        <Image source={require("../assets/logo/Bell.png")} />
       </View>
       <View className="p-4 mt-4 bg-[#0c2b97] h-48 w-[95%] rounded-lg">
         <Text className="text-white text-lg">Wallet Balance</Text>
         <Text className="text-white text-xl font-bold">₦0.00</Text>
+        <View className="flex-row">
+          <TouchableOpacity className="bg-white flex-row">
+            <Image source={require("../assets/logo/send.png")} />
+            <Text>Send</Text>
+          </TouchableOpacity>
+          <TouchableOpacity className="bg-white flex-row">
+            <Image source={require("../assets/logo/receive.png")} />
+            <Text>Recieve</Text>
+          </TouchableOpacity>
+        </View>
         <TouchableOpacity className="mt-12 bg-[#6b83d8] h-9 rounded-full">
           <Text className="text-white p-1 text-center text-base">
             + Sync your account
