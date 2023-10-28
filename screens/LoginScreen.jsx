@@ -1,10 +1,23 @@
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect, useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import {
+  ActivityIndicator,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import axios from "axios";
 import { useAuth } from "../services/auth";
-import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
+import {
+  NunitoSans_400Regular,
+  NunitoSans_700Bold,
+  NunitoSans_300Light,
+  NunitoSans_900Black,
+  NunitoSans_600SemiBold,
+  useFonts,
+} from "@expo-google-fonts/nunito-sans";
 
 export default function LoginScreen() {
   const navigation = useNavigation();
@@ -13,13 +26,26 @@ export default function LoginScreen() {
 
   const { login } = useAuth();
 
+  const [emailIsValid, setEmailIsValid] = useState(false);
+
+  const handleEmailChange = (text) => {
+    const emailRegex = /\S+@\S+\.\S+/;
+    setEmailIsValid(emailRegex.test(text));
+  };
+
+  const loginButtonDisabled = !emailIsValid || !passwordIsValid;
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const onSubmit = async () => {
+    setIsLoading(true);
+
     try {
       const data = {
         email: email,
@@ -39,11 +65,18 @@ export default function LoginScreen() {
     } catch (error) {
       // Handle login error, show a message to the user.
       console.error("Login failed:", error);
+      setIsLoading(false);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const [fontsLoaded] = useFonts({
-    Inter_900Black,
+  let [fontsLoaded] = useFonts({
+    NunitoSans_400Regular,
+    NunitoSans_600SemiBold,
+    NunitoSans_900Black,
+    NunitoSans_700Bold,
+    NunitoSans_300Light,
   });
 
   if (!fontsLoaded) {
@@ -51,11 +84,17 @@ export default function LoginScreen() {
   }
 
   return (
-    <SafeAreaProvider className="flex-1 pt-12 pl-4 bg-white font-[Inter_900Black]">
-      <View className="pt-12">
-        <Text className="font-bold text-2xl">Lets Get You Started</Text>
-        <Text className="text-xl pt-2">Login to your account</Text>
-      </View>
+    <SafeAreaView className="flex-1 pl-4 bg-white font-['NunitoSans_400Regular']">
+      {isLoading ? (
+        <View className="flex-1 justify-center items-center">
+          <ActivityIndicator size={"large"} color={"blue"} />
+        </View>
+      ) : (
+        <View className="pt-12">
+          <Text className="font-bold text-2xl">Lets Get You Started</Text>
+          <Text className="text-xl pt-2">Login to your account</Text>
+        </View>
+      )}
 
       <View className="pt-12 pr-4">
         <Text className="text-xl font-semibold">Email</Text>
@@ -100,6 +139,6 @@ export default function LoginScreen() {
           SignUp
         </Text>
       </View>
-    </SafeAreaProvider>
+    </SafeAreaView>
   );
 }

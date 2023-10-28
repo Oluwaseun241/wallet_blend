@@ -1,10 +1,10 @@
 import React from "react";
-import { Button, View } from "react-native";
+import { Button, View, Image } from "react-native";
 
 const backgroundColor = (isLight) => (isLight ? "blue" : "lightblue");
 const color = (isLight) => backgroundColor(!isLight);
 
-const Rounded = ({ isLight, selected }) => {
+export const Rounded = ({ isLight, selected }) => {
   let backgroundColor;
   if (isLight) {
     backgroundColor = selected ? "rgba(12, 43, 151, 1)" : "rgba(0, 0, 0, 0.3)";
@@ -24,14 +24,29 @@ const Rounded = ({ isLight, selected }) => {
   );
 };
 
-const Next = ({ isLight, ...props }) => {
-  <Button
-    title={"Next"}
-    buttonStyle={{
-      backgroundColor: backgroundColor(isLight),
-    }}
-    containerViewStyle={{}}
-  />;
+export const Next = ({ isLight, ...props }) => {
+  return (
+    <Button
+      title={"Next"}
+      buttonStyle={{
+        width: 70,
+      }}
+      containerViewStyle={{
+        width: 90,
+      }}
+      {...props}
+    />
+  );
 };
 
-export default Rounded;
+export const Skip = ({ isLight, ...props }) => {
+  return (
+    <Button
+      title="Skip"
+      buttonStyle={{
+        backgroundColor: backgroundColor(isLight),
+      }}
+      {...props}
+    />
+  );
+};

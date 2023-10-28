@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import jwtDecode from "jwt-decode";
 import { useLayoutEffect } from "react";
@@ -22,7 +22,7 @@ export default function HomeScreen() {
   });
 
   return (
-    <SafeAreaProvider className="flex-1 bg-white pt-12 pl-6">
+    <SafeAreaView className="flex-1 bg-white pt-12 pl-6">
       <View className="flex-row pt-4">
         <Image
           source={require("../assets/avatar.png")}
@@ -33,6 +33,7 @@ export default function HomeScreen() {
       </View>
       <View className="p-4 mt-4 bg-[#0c2b97] h-48 w-[95%] rounded-lg">
         <Text className="text-white text-lg">Wallet Balance</Text>
+
         <Text className="text-white text-xl font-bold">₦0.00</Text>
         <View className="flex-row">
           <TouchableOpacity className="bg-white flex-row">
@@ -85,6 +86,6 @@ export default function HomeScreen() {
         <Text className="text-lg font-semibold">Transations</Text>
         <Text className="font-medium pr-4">View all</Text>
       </View>
-    </SafeAreaProvider>
+    </SafeAreaView>
   );
 }

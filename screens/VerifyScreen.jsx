@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { View, Text, TouchableOpacity, TextInput, Image } from "react-native";
 
 export default function VerifyScreen() {
@@ -12,7 +12,7 @@ export default function VerifyScreen() {
     });
   });
   return (
-    <SafeAreaProvider className="pt-12 pl-4 bg-white">
+    <SafeAreaView className="pl-4 bg-white">
       <View className="pt-12 pr-4 flex-row">
         <TouchableOpacity onPress={() => navigation.navigate("Register")}>
           <Image source={require("../assets/back.png")} className="w-10 h-12" />
@@ -63,6 +63,6 @@ export default function VerifyScreen() {
           </Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaProvider>
+    </SafeAreaView>
   );
 }
