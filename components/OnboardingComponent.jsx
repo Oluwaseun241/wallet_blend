@@ -28,11 +28,9 @@ export const Next = ({ isLight, ...props }) => {
   return (
     <Button
       title={"Next"}
-      buttonStyle={{
-        width: 70,
-      }}
-      containerViewStyle={{
-        width: 90,
+      style={{
+        width: 0,
+        boaderRadius: 50,
       }}
       {...props}
     />

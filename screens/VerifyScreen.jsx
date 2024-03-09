@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { View, Text, TouchableOpacity, TextInput, Image } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function VerifyScreen() {
   const navigation = useNavigation();
@@ -12,10 +13,10 @@ export default function VerifyScreen() {
     });
   });
   return (
-    <SafeAreaView className="pl-4 bg-white">
-      <View className="pt-12 pr-4 flex-row">
+    <SafeAreaView className="p-4 bg-white">
+      <View className="mt-4 flex-row">
         <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-          <Image source={require("../assets/back.png")} className="w-10 h-12" />
+          <Ionicons name="arrow-back-circle" size={24} />
         </TouchableOpacity>
         <View>
           <Text className="font-semibold text-2xl text-center">

@@ -34,32 +34,33 @@ export default function RegisterScreen() {
     if (passwordError) {
       return;
     }
+    navigation.navigate("Verify");
 
-    try {
-      const data = {
-        name: name,
-        email: email,
-        password: password,
-      };
-
-      const response = await axios.post(
-        /* "http://127.0.0.1:3000/api/auth/register", */
-        "https://wallet-api.up.railway.app/api/auth/register",
-        data
-      );
-
-      // Handle successful login, e.g., store user data or token, navigate to main app screen.
-      console.log("Registration successful:", response.data);
-      navigation.navigate("Verify");
-    } catch (error) {
-      // Handle login error, show a message to the user.
-      console.error("Registration failed:", error);
-    }
+    // try {
+    //   const data = {
+    //     name: name,
+    //     email: email,
+    //     password: password,
+    //   };
+    //
+    //   const response = await axios.post(
+    //     /* "http://127.0.0.1:3000/api/auth/register", */
+    //     "https://wallet-api.up.railway.app/api/auth/register",
+    //     data
+    //   );
+    //
+    //   // Handle successful login, e.g., store user data or token, navigate to main app screen.
+    //   console.log("Registration successful:", response.data);
+    //   navigation.navigate("Verify");
+    // } catch (error) {
+    //   // Handle login error, show a message to the user.
+    //   console.error("Registration failed:", error);
+    // }
   };
 
   return (
-    <SafeAreaView className="flex-1 pl-4 bg-white">
-      <View className="pt-12">
+    <SafeAreaView className="flex-1 p-4 bg-white">
+      <View className="mt-4">
         <Text className="font-bold text-2xl">Tell Us About You</Text>
         <Text className="text-xl pt-2">Lets help you setup</Text>
       </View>

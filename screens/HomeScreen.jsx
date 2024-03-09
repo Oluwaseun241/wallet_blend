@@ -4,15 +4,16 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import jwtDecode from "jwt-decode";
 import { useLayoutEffect } from "react";
 import { useAuth } from "../services/auth";
+import { Feather } from "@expo/vector-icons";
 
 export default function HomeScreen() {
-  const { token } = useAuth();
-  const authToken = token;
-  // Decode the token to access user information
-  const decodedToken = jwtDecode(authToken);
-
-  // Access the user's username
-  const username = decodedToken.username;
+  // const { token } = useAuth();
+  // const authToken = token;
+  // // Decode the token to access user information
+  // const decodedToken = jwtDecode(authToken);
+  //
+  // // Access the user's username
+  // const username = decodedToken.username;
 
   const navigation = useNavigation();
   useLayoutEffect(() => {
@@ -22,26 +23,25 @@ export default function HomeScreen() {
   });
 
   return (
-    <SafeAreaView className="flex-1 bg-white pt-12 pl-6">
-      <View className="flex-row pt-4">
+    <SafeAreaView className="flex-1 bg-white pt-2 pl-6">
+      <View className="flex-row pt-2 gap-2 items-center">
         <Image
           source={require("../assets/avatar.png")}
           className="h-10 w-10 rounded-full"
         />
-        <Text className="text-xl font-semibold">Hi, {username}</Text>
+        <Text className="text-xl font-semibold">Hi, Oluwaseun</Text>
         <Image source={require("../assets/logo/Bell.png")} />
       </View>
       <View className="p-4 mt-4 bg-[#0c2b97] h-48 w-[95%] rounded-lg">
         <Text className="text-white text-lg">Wallet Balance</Text>
-
         <Text className="text-white text-xl font-bold">₦0.00</Text>
-        <View className="flex-row">
-          <TouchableOpacity className="bg-white flex-row">
-            <Image source={require("../assets/logo/send.png")} />
+        <View className="flex-row gap-4">
+          <TouchableOpacity className="bg-white flex-row rounded-lg w-20 gap-1">
+            <Feather name="send" size={24} color="#0c2b97" />
             <Text>Send</Text>
           </TouchableOpacity>
-          <TouchableOpacity className="bg-white flex-row">
-            <Image source={require("../assets/logo/receive.png")} />
+          <TouchableOpacity className="bg-white flex-row rounded-lg gap-1 w-24">
+            <Feather name="send" size={24} color="#0c2b97" />
             <Text>Recieve</Text>
           </TouchableOpacity>
         </View>

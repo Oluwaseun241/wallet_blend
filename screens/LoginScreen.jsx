@@ -45,30 +45,30 @@ export default function LoginScreen() {
 
   const onSubmit = async () => {
     setIsLoading(true);
-
-    try {
-      const data = {
-        email: email,
-        password: password,
-      };
-      const response = await axios.post(
-        "https://wallet-api.up.railway.app/api/auth/login",
-        data
-      );
-
-      if (response.data && response.data.token) {
-        const token = response.data.token;
-        console.log("Login successful:", token);
-        login(token);
-        navigation.navigate("Home");
-      }
-    } catch (error) {
-      // Handle login error, show a message to the user.
-      console.error("Login failed:", error);
-      setIsLoading(false);
-    } finally {
-      setIsLoading(false);
-    }
+    navigation.navigate("Home");
+    // try {
+    //   const data = {
+    //     email: email,
+    //     password: password,
+    //   };
+    //   const response = await axios.post(
+    //     "https://wallet-api.up.railway.app/api/auth/login",
+    //     data
+    //   );
+    //
+    //   if (response.data && response.data.token) {
+    //     const token = response.data.token;
+    //     console.log("Login successful:", token);
+    //     login(token);
+    //     navigation.navigate("Home");
+    //   }
+    // } catch (error) {
+    //   // Handle login error, show a message to the user.
+    //   console.error("Login failed:", error);
+    //   setIsLoading(false);
+    // } finally {
+    //   setIsLoading(false);
+    // }
   };
 
   let [fontsLoaded] = useFonts({
@@ -84,13 +84,13 @@ export default function LoginScreen() {
   }
 
   return (
-    <SafeAreaView className="flex-1 pl-4 bg-white font-['NunitoSans_400Regular']">
+    <SafeAreaView className="flex-1 p-4 bg-white font-['NunitoSans_400Regular']">
       {isLoading ? (
-        <View className="flex-1 justify-center items-center">
+        <View className="justify-center items-center">
           <ActivityIndicator size={"large"} color={"blue"} />
         </View>
       ) : (
-        <View className="pt-12">
+        <View className="mt-4">
           <Text className="font-bold text-2xl">Lets Get You Started</Text>
           <Text className="text-xl pt-2">Login to your account</Text>
         </View>

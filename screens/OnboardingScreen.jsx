@@ -28,7 +28,7 @@ const OnboardingScreen = () => {
 
   return (
     <SafeAreaProvider>
-      <View className="flex-row p-4 bg-white font-[NunitoSans_400Regular]">
+      <View className="flex-row p-2 bg-white font-[NunitoSans_400Regular]">
         <Image
           source={require("../assets/logo/walletblend-logo.png")}
           className="w-11 h-11"
@@ -41,8 +41,8 @@ const OnboardingScreen = () => {
         bottomBarHeight={55}
         bottomBarColor="#fff"
         DotComponent={Rounded}
-        NextButtonComponent={Next}
-        SkipButtonComponent={Skip}
+        //NextButtonComponent={Next}
+        //SkipButtonComponent={Skip}
         pages={[
           {
             backgroundColor: "#fff",
@@ -50,29 +50,41 @@ const OnboardingScreen = () => {
             title: "Send money in minutes",
             titleStyles: {
               fontWeight: "600",
-              fontSize: 30,
+              fontSize: 27,
               //fontFamily: NunitoSans_400Regular,
             },
             subtitle: "Recipients will receive funds almost immediately",
-            subTitleStyles: { fontSize: 16, fontWeight: "500" },
+            subTitleStyles: {
+              fontSize: 16,
+              fontWeight: "500",
+              paddingBottom: 50,
+            },
           },
           {
             backgroundColor: "#fff",
             image: <Image source={require("../assets/onboarding-img2.png")} />,
             title: "Safe and secure transfers",
-            titleStyles: { fontWeight: "600", fontSize: 30 },
+            titleStyles: { fontWeight: "600", fontSize: 27 },
             subtitle:
               "Your transactions and personal data are securely protected",
-            subTitleStyles: { fontSize: 16, fontWeight: "500" },
+            subTitleStyles: {
+              fontSize: 16,
+              fontWeight: "500",
+              paddingBottom: 50,
+            },
           },
           {
             backgroundColor: "#fff",
             image: <Image source={require("../assets/onboarding-img3.png")} />,
             title: "Manage all your financial account all one app",
-            titleStyles: { fontWeight: "600", fontSize: 30 },
+            titleStyles: { fontWeight: "600", fontSize: 27 },
             subtitle:
               "With this app, you can connect all your financial accounts, including your bank accounts, credit cards, and investment",
-            subTitleStyles: { fontSize: 16, fontWeight: "500" },
+            subTitleStyles: {
+              fontSize: 16,
+              fontWeight: "500",
+              paddingBottom: 100,
+            },
           },
         ]}
       />
